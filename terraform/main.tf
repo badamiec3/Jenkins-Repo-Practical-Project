@@ -13,5 +13,12 @@ module "my-ec2" {
   subnet_a_id = module.my-vpc.subnetid
 }
 
+module "my-rds" {
+  source = "./RDS"
+  vpc-id = module.my-vpc.vpcid
+  private_db_subnet = module.my-vpc.privatesubnetid
+}
+
+
 
 

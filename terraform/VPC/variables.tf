@@ -15,11 +15,11 @@ variable "open_internet" {
 }
 
 variable "public_associate_public_ip" {
-  description = "Enable if ec2 should have a public ip address"
+  description = "Enable for public subnet"
   default = true
 }
 
 variable "private_associate_public_ip" {
-  description = "Enable if ec2 should have a public ip address"
+  description = "Disable for private subnet"
   default = false
 }

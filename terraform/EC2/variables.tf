@@ -1,3 +1,12 @@
+variable "instance" {
+  description = "This variable states the ec2 instance type"
+  default = "t2.micro"
+}
+
+variable "vpc-id" {
+  description = "imported from vpc module by overriding"
+}
+
 variable "subnet_a_id" {
   description = "imported from vpc module by overriding "
 }

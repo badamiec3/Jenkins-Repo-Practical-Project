@@ -5,3 +5,7 @@ output "vpcid" {
 output "subnetid" {
   value = aws_subnet.subnet_a.id
 }
+
+output "privatesubnetid" {
+  value = aws_subnet.subnet_b.id
+}

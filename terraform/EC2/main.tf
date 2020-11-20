@@ -20,7 +20,7 @@ resource "aws_security_group" "web_sg" {
 
 resource "aws_key_pair" "demo_key" {
   key_name = "demokeys"
-  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCq7dwrLXjnt3MWvZ64IvVikB0+Y++bk0Dei5zy6U612iE4cTf/4rqsW2vh/YMM3w813RC2NCZFpQAi4sPeL0r34Y07JpunKABe+qwf89mCo9BIUnD389NX66D2Op8Xs/iFcTKtCKi0PbzOUDJf6yrpOZs98jdwsUaEVAcwROine0mT/qegofyQMHAXBqO6UiYIHPvFQabpdRhxS9zHYNcXfjsgK1+ccLCAuPKnhRRrVKVozAN5GEWlZ+0r+v+RSWfU3rWqWuq7kBjvsX2L6YPgd01ebB11et3SxCqtGMoIp3+0Q09ANvYxpqRqMBxZqd3M/y+bR3BhpfWq84ThCPyP ubuntu@ip-172-31-34-224"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDYfjWg1kQSN/PR2zlvKoXtkCN8JmI0qPK6B1ekjwMl/UTWlTHryEXKbwie2gjTDr55smQ3+ZpRQlOxA9vANoNBhMY6zkFyeNCzwLWxydaWf3X1Or1paq8HJCbAOmq0hxGwyeam6HY+60BvJH83MlgCxC6KGr1RsfFZ0vYjb5swhSiRKMcbvI3tY4bcHOliRxl4zz7vcSmwNFidnDPP1xh1ougyudTFvxhnwpzmjLUZ/j81gOCP3jZUMbgzSEm0HLz2SIFh0dDd6EUaUtYtY3BWxRto/gRLy+znEcAEExvoVA/SfjFVNtGnfXhAOVl5fst411zNOoVF5E9duwAMlzYV ubuntu@ip-172-31-45-205"
 }
 
 resource "aws_instance" "ec2" {
