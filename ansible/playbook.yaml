@@ -1,5 +1,8 @@
 - hosts: jenkins
-  become: yes
+  become: true
   roles:
-  - key-transfer
+  - jenkins
+  - git
+  - docker
+
 

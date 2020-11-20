@@ -1,0 +1,4 @@
+- name: jenkins install
+  script: /home/ubuntu/cne-sfia2-brief/ansible/ansible-scripts/jenkins-install.sh
+
+  

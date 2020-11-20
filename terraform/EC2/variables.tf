@@ -40,3 +40,12 @@ variable "open_internet" {
   description = "CIDR notation for the whole internet"
   default = "0.0.0.0/0"
 }
+
+variable "jenkins_inbound" {
+  default = 8080
+}
+
+variable "local-ip" {
+  default = "84.69.154.6/32"
+
+}

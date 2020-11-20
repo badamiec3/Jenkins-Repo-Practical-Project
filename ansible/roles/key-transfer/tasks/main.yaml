@@ -1,9 +1,0 @@
-- openssh_keypair:
-    path: /home/ubuntu/.ssh/id_rsa
-
-- name: Transfer private key
-  copy: src=/home/ubuntu/.ssh/test_id_rsa dest=/home/ubuntu/.ssh/id_rsa mode=0644
-
-- name: Transfer public key
-  copy: src=/home/ubuntu/.ssh/test_id_rsa.pub dest=/home/ubuntu/.ssh/id_rsa.pub mode=0644
-

@@ -18,6 +18,26 @@ resource "aws_security_group" "install_sg" {
   }
 }
 
+resource "aws_security_group" "allow_8080" {
+  name = "Allow port 8080 from local machine"
+  description = "Allow 8080"
+  vpc_id = var.vpc-id
+
+  ingress {
+    from_port = var.jenkins_inbound
+    protocol = "tcp"
+    to_port = var.jenkins_inbound
+    cidr_blocks = [var.local-ip]  
+  }
+
+  egress {
+    from_port = var.outbound_port
+    protocol = "-1"
+    to_port = var.outbound_port
+    cidr_blocks = [var.open_internet]  
+  }
+}
+
 
 resource "aws_key_pair" "install_vm_key" {
   key_name = "install_vm_key"
@@ -30,7 +50,7 @@ resource "aws_instance" "ec2" {
   key_name = aws_key_pair.install_vm_key.key_name
   associate_public_ip_address = var.enable_public_ip
   subnet_id = var.subnet_a_id
-  vpc_security_group_ids = [aws_security_group.install_sg.id]
+  vpc_security_group_ids = [aws_security_group.install_sg.id, aws_security_group.allow_8080.id]
   
 }
 
