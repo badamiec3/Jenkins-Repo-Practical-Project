@@ -1,0 +1,13 @@
+on test vm install:
+mysql
+docker
+docker-compose
+forward the keypair using a script
+
+on normal vm install:
+jenkins
+kubectl
+docker
+docker-compose
+
+

@@ -30,6 +30,12 @@ variable "outbound_port" {
   default = 0
 }
 
+variable "terraform_vm_ip" {
+  description = "CIDR notation for the IP of terraform/ansible vm"
+  default = "34.250.22.197/32"
+}
+
+
 variable "open_internet" {
   description = "CIDR notation for the whole internet"
   default = "0.0.0.0/0"

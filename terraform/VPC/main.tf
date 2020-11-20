@@ -17,6 +17,13 @@ resource "aws_subnet" "subnet_b" {
   map_public_ip_on_launch = var.private_associate_public_ip
 }
 
+resource "aws_subnet" "subnet_c" {
+  vpc_id = aws_vpc.vpc.id
+  cidr_block = var.subnet_c_cidr_block
+  availability_zone = "eu-west-1b"
+  map_public_ip_on_launch = var.private_associate_public_ip
+}
+
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.vpc.id
 }
