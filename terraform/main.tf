@@ -21,9 +21,9 @@ module "my-rds" {
 }
 
 module "my-eks" {
-  source = "./EKS"
-  vpc-id = module.my-vpc.vpcid
-  public_subnet = module.my-vpc.subnetid
+  source               = "./EKS"
+  vpc-id               = module.my-vpc.vpcid
+  public_subnet        = module.my-vpc.subnetid
   second_public_subnet = module.my-vpc.secondpublicsubnetid
 }
 

@@ -45,7 +45,7 @@ resource "aws_eks_cluster" "project_cluster" {
   vpc_config {
     endpoint_private_access = true
     subnet_ids         = [var.public_subnet, var.second_public_subnet]
-    security_group_ids = [aws_security_group.eks_sg,aws_security_group.allow_80_eks_sg]
+    security_group_ids = [aws_security_group.eks_sg.id, aws_security_group.allow_80_eks_sg.id]
   }
   version = "1.17"
 }
