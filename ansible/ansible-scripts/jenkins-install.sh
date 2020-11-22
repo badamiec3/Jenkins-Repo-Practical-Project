@@ -6,6 +6,9 @@ elif type yum > /dev/null; then
     pkg_mgr=yum
     java="java"
 fi
+
+if ! cat /etc/group | grep jenkins > /dev/null; then 
+
 echo "updating and installing dependencies"
 sudo ${pkg_mgr} update
 sudo ${pkg_mgr} install -y ${java} wget git > /dev/null
@@ -38,4 +41,8 @@ until [[ -n "\$(cat  .jenkins/secrets/initialAdminPassword)" ]]; do
 done
 echo "initial admin password: \$(cat .jenkins/secrets/initialAdminPassword)"
 EOF
+
+else 
+        echo 'already installed'
+fi
 

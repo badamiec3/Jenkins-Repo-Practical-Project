@@ -1,0 +1,4 @@
+- name: kubectl install
+  script: /home/ubuntu/cne-sfia2-brief/ansible/ansible-scripts/kubectl-install.sh
+
+  

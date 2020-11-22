@@ -41,7 +41,7 @@ resource "aws_security_group" "allow_8080" {
 
 resource "aws_key_pair" "install_vm_key" {
   key_name = "install_vm_key"
-  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDYfjWg1kQSN/PR2zlvKoXtkCN8JmI0qPK6B1ekjwMl/UTWlTHryEXKbwie2gjTDr55smQ3+ZpRQlOxA9vANoNBhMY6zkFyeNCzwLWxydaWf3X1Or1paq8HJCbAOmq0hxGwyeam6HY+60BvJH83MlgCxC6KGr1RsfFZ0vYjb5swhSiRKMcbvI3tY4bcHOliRxl4zz7vcSmwNFidnDPP1xh1ougyudTFvxhnwpzmjLUZ/j81gOCP3jZUMbgzSEm0HLz2SIFh0dDd6EUaUtYtY3BWxRto/gRLy+znEcAEExvoVA/SfjFVNtGnfXhAOVl5fst411zNOoVF5E9duwAMlzYV ubuntu@ip-172-31-45-205"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7dumdlSEjVu3CPwimY7LuiM4fIOLt68Ic6H2E7+GZoemyFPtUMpT+8jSB8l4xWVya8dJlBCE/FWivC82MJH1boe3T5hTjqpARbfheVyBgGjm15GjhfCACUlrGFumEb9NuHOlV5S6ocHji1xi+uLhuNGvqDtMHTOw7zHVDfG0bK00GBi9qAKiQIBaG//T7h0h0qrrGfh1u/BNragqCMSx0kNSsfIy2QABZ1DywlsUemPUMtICS/WK/DHNG7+rszUXOi8TNuWCdyn78v63Ahq4MBjHwFCd8d7fGk5c1Sl5AtfVRf/0J72SzB5AQqsSarvAVOJWmGd40qRnhhReEbTLl ubuntu@ip-172-31-45-205"
 }
 
 resource "aws_instance" "ec2" {
@@ -53,6 +53,11 @@ resource "aws_instance" "ec2" {
   vpc_security_group_ids = [aws_security_group.install_sg.id, aws_security_group.allow_8080.id]
   
 }
+
+
+
+
+
 
 
 

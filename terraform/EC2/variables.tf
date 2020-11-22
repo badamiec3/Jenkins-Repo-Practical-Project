@@ -16,8 +16,13 @@ variable "ami_id" {
 }
 
 variable "enable_public_ip" {
-  description = "Enable if ec2 should have a public ip address"
+  description = "Enable if ec2 instance should have a public ip address"
   default = true
+}
+
+variable "subnet_a_cidr_block" {
+  description = "CIDR notation for allowing ssh from jenkins vm to test vm"
+  default = "10.0.1.0/24"
 }
 
 variable "inbound_port" {
