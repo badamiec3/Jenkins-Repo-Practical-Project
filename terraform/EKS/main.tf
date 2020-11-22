@@ -1,19 +1,60 @@
-resource "aws_eks_cluster" "kubenetes_cluster" {
-  name     = "kubenetes_cluster"
-  role_arn = var.cluster-role-arn
+resource "aws_security_group" "eks_sg" {
+  name = "Allow traffic from vpc"
+  description = "Allow SSH"
+  vpc_id = var.vpc-id
+
+  ingress {
+    from_port = var.inbound_port
+    protocol = "tcp"
+    to_port = var.inbound_port
+    cidr_blocks = [var.allow-cidr-block]  
+  }
+
+  egress {
+    from_port = var.outbound_port
+    protocol = "-1"
+    to_port = var.outbound_port
+    cidr_blocks = [var.open_internet]  
+  }
+}
+
+resource "aws_security_group" "allow_80_eks_sg" {
+  name = "Allow traffic from internet on 80"
+  description = "Allow 80"
+  vpc_id = var.vpc-id
+
+  ingress {
+    from_port = var.inbound_port_80
+    protocol = "tcp"
+    to_port = var.inbound_port_80
+    cidr_blocks = [var.open_internet]  
+  }
+
+  egress {
+    from_port = var.outbound_port
+    protocol = "-1"
+    to_port = var.outbound_port
+    cidr_blocks = [var.open_internet]  
+  }
+}
+
+resource "aws_eks_cluster" "project_cluster" {
+  name     = "project-cluster"
+  role_arn = var.cluster-service-role-arn
  
   vpc_config {
-    subnet_ids         = [var.subnet_A_id, var.subnet_B_id]
-    security_group_ids = [var.security_group_A_id]
+    endpoint_private_access = true
+    subnet_ids         = [var.public_subnet, var.second_public_subnet]
+    security_group_ids = [aws_security_group.eks_sg,aws_security_group.allow_80_eks_sg]
   }
   version = "1.17"
 }
  
 resource "aws_eks_node_group" "node" {
-  cluster_name    = aws_eks_cluster.kubenetes_cluster.name
+  cluster_name    = aws_eks_cluster.project_cluster.id
   node_group_name = "Nodes"
   node_role_arn   = var.node-role-arn
-  subnet_ids      = [var.subnet_A_id, var.subnet_B_id]
+  subnet_ids      = [var.public_subnet, var.second_public_subnet]
   ami_type        = var.ami
   instance_types  = var.instance_type
  
@@ -22,6 +63,12 @@ resource "aws_eks_node_group" "node" {
     max_size     = 2
     min_size     = 2
   }
+
+  remote_access {
+    ec2_ssh_key = "jenkins"
+  }
  
 }
+
+
 

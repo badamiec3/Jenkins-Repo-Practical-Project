@@ -20,6 +20,12 @@ module "my-rds" {
   second_private_db_subnet = module.my-vpc.secondprivatesubnetid
 }
 
+module "my-eks" {
+  source = "./EKS"
+  vpc-id = module.my-vpc.vpcid
+  public_subnet = module.my-vpc.subnetid
+  second_public_subnet = module.my-vpc.secondpublicsubnetid
+}
 
 
 

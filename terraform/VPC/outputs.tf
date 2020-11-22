@@ -13,3 +13,7 @@ output "privatesubnetid" {
 output "secondprivatesubnetid" {
   value = aws_subnet.subnet_c.id
 }
+
+output "secondpublicsubnetid" {
+  value = aws_subnet.subnet_d.id
+}

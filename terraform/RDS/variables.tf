@@ -7,8 +7,8 @@ variable "second_private_db_subnet" {
 }
 
 variable "allow-cidr-block" {
-    description = "Used to allow ec2 and test-ec2 in public subnet to access RDS instances on port 3306"
-    default = "10.0.1.0/24"
+    description = "Used to allow ec2, test-ec2 and RDS to access RDS instances on port 3306"
+    default = "10.0.0.0/16"
     }
 
 variable "vpc-id" {
