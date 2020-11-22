@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: project
+  labels:
+    app: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: badamiec3/triotask:1.0
+        env:
+        - name: DATABASE_URI
+          valueFrom:
+            secretKeyRef:
+              name: db-uri
+              key: DATABASE_URI
+        - name: SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: db-uri
+              key: SECRET_KEY
+        - name: TEST_DATABASE_URI
+          valueFrom:
+            secretKeyRef:
+               name: db-uri
+               key: TEST_DATABASE_URI
+        ports:
+        - containerPort: 5001
