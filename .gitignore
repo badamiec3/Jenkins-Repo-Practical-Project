@@ -3,6 +3,7 @@
 *.backup
 *.log
 *.env
+
 kubernetes/secrets.yaml
 
 
