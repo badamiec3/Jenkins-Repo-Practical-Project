@@ -115,6 +115,8 @@ If the tests pass, the new docker images for the frontend and backend are pushed
 
 The image below shows the structure of the cluster hosting the Flask application. Three replicas of the frontend and three replicas of the backend are deployed, and the deployments are assigned with Cluster IPs. The frontend Cluser IP naturally load-balances between the three backend pods. A load balancer deployed by Kubernetes splits traffic between the frontend containers using an NGINX reverse proxy. The database is accessed by the backend whenever a GET request is made by the frontend, triggered by a user accessing the load balancer on port 80 where NGINX listens.
 
+The benefit of this structure is that when a change is made to either the frontend or backend code, the only changes are to the frontend and backend deployments. Even in a situation where backend or frontend pods are taken down and new ones created, the load balancer external IP remains unchanged, meaning that the live user experience will not be interrupted.
+
 ![cluster][cluster]
 
 Accesing the load balancer on port 80 will give the following:
