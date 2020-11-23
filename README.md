@@ -119,7 +119,7 @@ The benefit of this structure is that when a change is made to either the fronte
 
 ![cluster][cluster]
 
-Accesing the load balancer on port 80 will display the following:
+Accesing the load balancer on port 80 will show the following:
 
 ![browser][browser]
 
