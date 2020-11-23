@@ -95,7 +95,7 @@ Past sprints and burndown charts can be accessed in the Reports section along wi
 
 ## Testing
 An important step in the CI pipeline is testing. The Jenkins pipeline in this project is designed in such a way that when a change is made to the source code, tests are ran and must succeed in order for the pipeline to proceed with the building and pushing of updated docker images to Docker Hub. 
-Pytest is used to run the tests on the app. Tests were provided for both the backend and frontend of the flask app, and pytest generated a coverage report as a console output (pictured below) which informed the developer about which tests failed and which passed.
+Pytest is used to run the tests on the app. Tests were provided for both the backend and frontend of the flask app, and pytest generated a coverage report as a console output (pictured below) which informed the developer about how many tests failed and how many passed.
 
 Successful frontend report:
 
