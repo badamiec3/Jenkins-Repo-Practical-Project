@@ -43,7 +43,7 @@ resource "aws_eks_cluster" "project_cluster" {
   role_arn = var.cluster-service-role-arn
  
   vpc_config {
-    endpoint_private_access = true
+    endpoint_public_access = true
     subnet_ids         = [var.public_subnet, var.second_public_subnet]
     security_group_ids = [aws_security_group.eks_sg.id, aws_security_group.allow_80_eks_sg.id]
   }
