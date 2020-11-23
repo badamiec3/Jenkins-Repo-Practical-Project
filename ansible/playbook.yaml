@@ -1,0 +1,30 @@
+---
+- hosts: jenkins
+  become: true
+  roles:
+  - git
+  - docker
+  - kubectl
+  - jenkins
+  - awscli
+  - mysql
+
+- hosts: pytest
+  become: true
+  roles:
+  - docker
+  - mysql
+  - pytest
+
+  
+
+
+
+
+
+
+
+
+  
+
+

@@ -1,0 +1,4 @@
+- name: aws install
+  script: /home/ubuntu/cne-sfia2-brief/ansible/ansible-scripts/aws-install.sh
+
+

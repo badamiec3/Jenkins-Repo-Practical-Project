@@ -1,0 +1,2 @@
+- name: docker install
+  script: /home/ubuntu/cne-sfia2-brief/ansible/ansible-scripts/docker-install.sh
