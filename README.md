@@ -1,4 +1,4 @@
-# CI Pipeline Practical Project Readme
+# CI Pipeline Practical Project
 
 ## Contents
 * [Aims](#aims)
